@@ -3,11 +3,11 @@ import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, 
 const UsersTable = ({ userProp }) => {
 
     return (
-        <TableContainer component={Paper}>
+        <TableContainer component={Paper} >
             <Table>
-                <TableHead>
-                    <TableRow>
-                        <TableCell>ID</TableCell>
+                <TableHead >
+                    <TableRow >
+                        <TableCell >ID</TableCell>
                         <TableCell>Name</TableCell>
                         <TableCell>Action</TableCell>
                     </TableRow>
@@ -19,13 +19,13 @@ const UsersTable = ({ userProp }) => {
                         userProp.length > 0 ? userProp.map((user) => {
 
                             return (
-                                <TableRow key={user.Id}>
+                                <TableRow key={user.Id} >
                                     <TableCell component='th' scope="row">{user.Id}</TableCell>
                                     <TableCell component='th' scope="row">{user.Name}</TableCell>
 
                                     <TableCell>
                                         <Button
-                                            sx={{ margin: '0px 10px' }}
+                                            sx={{ margin: '0px 10px', backgroundColor: '#00c6e6' }}
                                             onClick={() => { }}
                                         >
 
@@ -34,7 +34,7 @@ const UsersTable = ({ userProp }) => {
                                         </Button>
 
                                         <Button
-                                            sx={{ margin: '0px 10px' }}
+                                            sx={{ margin: '0px 10px', backgroundColor: 'red', color: '#000000' }}
                                             onClick={() => { }}
                                         >
 
@@ -63,3 +63,5 @@ const UsersTable = ({ userProp }) => {
 }
 
 export default UsersTable;
+
+
