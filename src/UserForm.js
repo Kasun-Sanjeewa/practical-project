@@ -1,9 +1,13 @@
 import { Button, Grid, Input, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const UserForm = (props) => {
 
     const navigate = useNavigate();
+
+    const [Id, setId] = useState();
+    const [Name, setName] = useState('');
 
     return (
         <>
@@ -65,12 +69,12 @@ const UserForm = (props) => {
                         </Typography>
 
                         <Input
-                            type="text"
-                            id="name"
-                            name="name"
+                            type="number"
+                            id="Id"
+                            name="Id"
                             sx={{ width: '400px', marginBottom: '20px' }}
-                            value={''}
-                            onChange={e => { }}
+                            value={Id}
+                            onChange={(e) => { setId(e.target.value) }}
                         />
 
                     </Grid>
@@ -96,12 +100,12 @@ const UserForm = (props) => {
                         </Typography>
 
                         <Input
-                            type="number"
-                            id="id"
-                            name="id"
+                            type="text"
+                            id="name"
+                            name="name"
                             sx={{ width: '400px' }}
-                            value={''}
-                            onChange={e => { }}
+                            value={Name}
+                            onChange={(e) => { setName(e.target.value) }}
                         />
 
                     </Grid>
