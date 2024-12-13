@@ -6,7 +6,7 @@ const UserForm = ({ addUserProp, submitProp, data, isEditProp, updateUserProp })
 
     const navigate = useNavigate();
 
-    const [Id, setId] = useState();
+    const [Id, setId] = useState('');
     const [Name, setName] = useState('');
 
     useEffect(() => {
@@ -39,7 +39,7 @@ const UserForm = ({ addUserProp, submitProp, data, isEditProp, updateUserProp })
     return (
         <>
             <Grid display={"flex"}>
-                <Button item
+                <Button
                     sx={{
                         backgroundColor: '#028391',
                         marginLeft: '10px',

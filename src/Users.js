@@ -80,9 +80,7 @@ const Users = () => {
 
     //Delete USer
     const deleteUser = (data) => {
-        console.log(data)
-
-        axios.delete('http://localhost:3001/api/deleteUser', data)
+        axios.delete('http://localhost:3001/api/deleteUser', { data: data })
             .then(() => {
                 getUser();
 
