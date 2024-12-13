@@ -1,13 +1,40 @@
 import { Button, Grid, Input, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const UserForm = (props) => {
+const UserForm = ({ addUserProp, submitProp, data, isEditProp, updateUserProp }) => {
 
     const navigate = useNavigate();
 
     const [Id, setId] = useState();
     const [Name, setName] = useState('');
+
+    useEffect(() => {
+        if (!submitProp) {
+            setId('')
+            setName('')
+        }
+    }, [submitProp])
+
+
+    useEffect(() => {
+        if (data && data.id && data.id !== 0) {
+            setId(data.id)
+            setName(data.name)
+        }
+    }, [data]);
+
+    const handleUser = () => {
+        isEditProp ? updateUserProp({
+            id: Id,
+            name: Name
+        })
+
+            : addUserProp({
+                id: Id,
+                name: Name
+            })
+    }
 
     return (
         <>
@@ -124,8 +151,10 @@ const UserForm = (props) => {
                             backgroundColor: '#00c6e6',
                             color: '#ffffff'
                         }
-                    }}>
-                    Add
+                    }} onClick={handleUser}>
+                    {
+                        isEditProp ? "Update" : "Add"
+                    }
 
                 </Button>
 

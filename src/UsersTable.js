@@ -1,6 +1,6 @@
 import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 
-const UsersTable = ({ userProp }) => {
+const UsersTable = ({ userProp, selecteDataProp, deleteUser }) => {
 
     return (
         <TableContainer component={Paper} >
@@ -19,14 +19,19 @@ const UsersTable = ({ userProp }) => {
                         userProp.length > 0 ? userProp.map((user) => {
 
                             return (
-                                <TableRow key={user.Id} >
-                                    <TableCell component='th' scope="row">{user.Id}</TableCell>
-                                    <TableCell component='th' scope="row">{user.Name}</TableCell>
+                                <TableRow key={user.id} >
+                                    <TableCell component='th' scope="row">{user.id}</TableCell>
+                                    <TableCell component='th' scope="row">{user.name}</TableCell>
 
                                     <TableCell>
                                         <Button
                                             sx={{ margin: '0px 10px', backgroundColor: '#00c6e6' }}
-                                            onClick={() => { }}
+                                            onClick={() => selecteDataProp(
+                                                {
+                                                    id: user.id,
+                                                    name: user.name,
+                                                }
+                                            )}
                                         >
 
                                             Upgrate
@@ -35,7 +40,7 @@ const UsersTable = ({ userProp }) => {
 
                                         <Button
                                             sx={{ margin: '0px 10px', backgroundColor: 'red', color: '#000000' }}
-                                            onClick={() => { }}
+                                            onClick={() => deleteUser({ id: user.id })}
                                         >
 
                                             Delete
